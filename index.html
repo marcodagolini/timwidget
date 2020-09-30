@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    
+
+	 
+	
+    
+  </style>
+ 
+ 
+ 
+  
+    
+    <head>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
+    
+    </head>
+    <body>
+      
+      
+     
+    <script>
+      
+	    
+	$(document).ready(function() {
+              
+              	var SDK=lpTag.agentSDK;
+              	SDK.init();
+                
+                var customerID;
+                var token;
+                
+                var onSuccess1 = function(data) {
+                // Do something with the returning data
+                	customerID = data;
+                  console.log("customerID --> " + customerID);
+                };
+                
+                var onError1 = function(data) {
+                // Do something with the returning data
+                	customerID = null;
+                  console.log("customerID --> " + customerID);
+                };
+                
+                
+                var onSuccess2 = function(data) {
+                // Do something with the returning data
+                	token = data;
+                  console.log("token --> " + token);
+                };
+                
+                
+                var onError2 = function(data) {
+                // Do something with the returning data
+                	token = null;
+                  console.log("token --> " + token);
+                };
+                
+               
+   
+               
+             
+                SDK.get('authenticatedData.customerDetails.socialId', onSuccess1, onError1);
+                SDK.get(''authenticatedData.customerDetails.imei', onSuccess2, onError2);
+               
+              
+           });
+	    
+	    
+	    
+      
+    </script>
+  
+        
+          
+      
+    </body>
+</html>
